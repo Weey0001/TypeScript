@@ -1,0 +1,4 @@
+_create_app
+  -npx create-expo-app --template blank-typescript
+
+
