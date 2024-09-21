@@ -6,6 +6,7 @@ import {
 } from "react-native";
 import { PlaceType } from "../../models/places";
 import Place_Item from "./Place_Item";
+import { Colors } from "../../constants/colors";
 
 const Places_List = ({
 	places,
@@ -45,5 +46,6 @@ const styles = StyleSheet.create({
 	},
 	fallbackText: {
 		fontSize: 16,
+		color: Colors.accent500,
 	},
 });

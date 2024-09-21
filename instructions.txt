@@ -1,4 +1,12 @@
 _create_app
   -npx create-expo-app --template blank-typescript
 
+_tunnel ngrok
+  -npm uninstall -g ngrok
+  -npm install -g ngrok
+  -npx expo start --tunnel 
+
+_cache
+  -npm cache clean --force
+  -npm start -- --reset-cache
 
