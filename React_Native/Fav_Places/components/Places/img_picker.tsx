@@ -35,10 +35,6 @@ const Img_picker = ({ onImagePicker }: any) => {
 		if (
 			cam_perm?.status === PermissionStatus.DENIED
 		) {
-			Alert.alert(
-				"Insufficient permissions!",
-				"You need to grant camera permissions to use this app.",
-			);
 			const perm_rsp = await req_perm();
 			return perm_rsp;
 		}

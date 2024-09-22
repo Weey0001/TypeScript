@@ -81,10 +81,6 @@ const Loctn_picker = ({
 		if (
 			loc_perm?.status === PermissionStatus.DENIED
 		) {
-			Alert.alert(
-				"Insufficient permissions!",
-				"You need to grant camera permissions to use this app.",
-			);
 			const perm_rsp = await req_perm();
 			return perm_rsp;
 		}
