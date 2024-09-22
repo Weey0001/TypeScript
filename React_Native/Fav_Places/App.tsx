@@ -10,10 +10,16 @@ import Plcs_dtls from "./sreens/Plcs_dtls";
 import Icn_Btn from "./UI/Icn_Btn";
 import { Colors } from "./constants/colors";
 import Map from "./sreens/Map";
+import { useEffect } from "react";
+import { init } from "./util/database";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+	useEffect(() => {
+		let res = init();
+		console.log(res);
+	}, []);
 	return (
 		<>
 			<StatusBar style="dark" />
