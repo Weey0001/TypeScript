@@ -9,6 +9,7 @@ import Add_plcs from "./sreens/Add_plcs";
 import Plcs_dtls from "./sreens/Plcs_dtls";
 import Icn_Btn from "./UI/Icn_Btn";
 import { Colors } from "./constants/colors";
+import Map from "./sreens/Map";
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +62,13 @@ export default function App() {
 						component={Plcs_dtls}
 						options={{
 							title: "Place details",
+						}}
+					/>
+					<Stack.Screen
+						name="Map"
+						component={Map}
+						options={{
+							title: "Map View",
 						}}
 					/>
 				</Stack.Navigator>
