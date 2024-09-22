@@ -24,7 +24,7 @@ const All_plcs = ({ route }: any) => {
 				route.params.place,
 			]);
 		}
-	});
+	}, [isFocused, route]);
 	return <Places_List places={loaded} />;
 };
 
