@@ -10,8 +10,9 @@ import { Colors } from "../../constants/colors";
 import Img_picker from "./img_picker";
 import Loctn_picker from "./lctn_picker";
 import Btn from "../../UI/btn";
+import { Place } from "../../models/places";
 
-const Plcs_frm = () => {
+const Plcs_frm = ({ onCreatePlace }: any) => {
 	const [enteredTitle, setEnteredTitle] =
 		useState("");
 	const [pkd_lc, set_pkd_lc] =
@@ -32,6 +33,13 @@ const Plcs_frm = () => {
 		console.log(enteredTitle);
 		console.log(slc_ig);
 		console.log(pkd_lc);
+
+		const place_data = new Place(
+			enteredTitle,
+			slc_ig,
+			pkd_lc,
+		);
+		onCreatePlace(place_data);
 	};
 	return (
 		<ScrollView style={styles.form}>

@@ -9,7 +9,7 @@ export interface PlaceType {
 
 	id: string;
 }
-class Place implements PlaceType {
+export class Place implements PlaceType {
 	title: string;
 	imageUri: string;
 	address: string;
@@ -22,16 +22,19 @@ class Place implements PlaceType {
 	constructor(
 		title: string,
 		imageUri: string,
-		address: string,
 		location: {
 			lat: number;
 			lng: number;
+			address: string;
 		},
 	) {
 		this.title = title;
 		this.imageUri = imageUri;
-		this.address = address;
-		this.location = location;
+		this.address = location.address;
+		this.location = {
+			lat: location.lat,
+			lng: location.lng,
+		};
 		this.id =
 			new Date().toString() +
 			Math.random().toString();

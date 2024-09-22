@@ -20,8 +20,12 @@ const Place_Item = ({
 		<Pressable onPress={onSelect}>
 			<Image source={{ uri: place.imageUri }} />
 			<View style={[]}>
-				<Text style={[]}>{place.title}</Text>
-				<Text style={[]}>{place.address}</Text>
+				<Text style={styles.txt}>
+					{place.title}
+				</Text>
+				<Text style={styles.txt}>
+					{place.address}
+				</Text>
 			</View>
 			<Text>Place_Item</Text>
 		</Pressable>
@@ -30,4 +34,8 @@ const Place_Item = ({
 
 export default Place_Item;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	txt: {
+		color: "white",
+	},
+});
