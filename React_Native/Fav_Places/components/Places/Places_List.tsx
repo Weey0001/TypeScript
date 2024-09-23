@@ -26,7 +26,7 @@ const Places_List = ({
 		<FlatList
 			data={places}
 			style={styles.list}
-			keyExtractor={(item) => item.id}
+			keyExtractor={(item: any) => item.id}
 			renderItem={({ item }) => (
 				<Place_Item
 					place={item}

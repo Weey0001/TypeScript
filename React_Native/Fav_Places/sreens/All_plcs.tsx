@@ -10,6 +10,7 @@ import React, {
 import Places_List from "../components/Places/Places_List";
 import { useIsFocused } from "@react-navigation/native";
 import { PlaceType } from "../models/places";
+import { fetchPlaces } from "../util/database";
 
 const All_plcs = ({ route }: any) => {
 	const [loaded, setLoadedPlaces] = useState<
@@ -18,13 +19,15 @@ const All_plcs = ({ route }: any) => {
 	const isFocused = useIsFocused();
 
 	useEffect(() => {
-		if (isFocused && route.params) {
-			setLoadedPlaces((prev) => [
-				...prev,
-				route.params.place,
-			]);
+		const loadPlaces = async () => {
+			let data = await fetchPlaces();
+			if (!!data) setLoadedPlaces(data);
+			console.log(data);
+		};
+		if (isFocused) {
+			loadPlaces();
 		}
-	}, [isFocused, route]);
+	}, [isFocused]);
 	return <Places_List places={loaded} />;
 };
 

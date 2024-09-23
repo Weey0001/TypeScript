@@ -93,7 +93,10 @@ const Loctn_picker = ({
 		}
 		const location =
 			await getCurrentPositionAsync();
-		console.log(location);
+		// console.log(
+		// 	"Location /n",
+		// 	JSON.stringify(location, null, "\t"),
+		// );
 		set_loc({
 			lat: location.coords.latitude,
 			lng: location.coords.longitude,

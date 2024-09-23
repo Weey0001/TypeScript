@@ -5,14 +5,14 @@ import {
 } from "react-native";
 import Plcs_frm from "../components/Places/Plcs_frm";
 import { PlaceType } from "../models/places";
+import { insertPlace } from "../util/database";
 
 const Add_plcs = ({ navigation }: any) => {
-	const createPlacehandler = (
+	const createPlacehandler = async (
 		place: PlaceType,
 	) => {
-		navigation.navigate("All_plcs", {
-			place: place,
-		});
+		await insertPlace(place);
+		navigation.navigate("All_plcs");
 	};
 	return (
 		<Plcs_frm

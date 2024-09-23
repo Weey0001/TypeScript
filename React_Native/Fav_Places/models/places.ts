@@ -7,7 +7,7 @@ export interface PlaceType {
 		lng: number;
 	};
 
-	id: string;
+	id?: string;
 }
 export class Place implements PlaceType {
 	title: string;
@@ -18,7 +18,7 @@ export class Place implements PlaceType {
 		lng: number;
 	};
 
-	id: string;
+	id?: string;
 	constructor(
 		title: string,
 		imageUri: string,
@@ -27,6 +27,7 @@ export class Place implements PlaceType {
 			lng: number;
 			address: string;
 		},
+		id?: any,
 	) {
 		this.title = title;
 		this.imageUri = imageUri;
@@ -35,8 +36,6 @@ export class Place implements PlaceType {
 			lat: location.lat,
 			lng: location.lng,
 		};
-		this.id =
-			new Date().toString() +
-			Math.random().toString();
+		this.id = id;
 	}
 }

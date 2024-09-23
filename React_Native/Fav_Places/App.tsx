@@ -10,15 +10,25 @@ import Plcs_dtls from "./sreens/Plcs_dtls";
 import Icn_Btn from "./UI/Icn_Btn";
 import { Colors } from "./constants/colors";
 import Map from "./sreens/Map";
-import { useEffect } from "react";
+import {
+	useEffect,
+	useLayoutEffect,
+	useState,
+} from "react";
 import { init } from "./util/database";
+// splash screen
+import * as SplashScreen from "expo-splash-screen";
+
+SplashScreen.preventAutoHideAsync();
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-	useEffect(() => {
-		let res = init();
-		console.log(res);
+	useLayoutEffect(() => {
+		(async () => {
+			init();
+			await SplashScreen.hideAsync();
+		})();
 	}, []);
 	return (
 		<>
@@ -40,7 +50,7 @@ export default function App() {
 						component={All_plcs}
 						options={({ navigation }) => {
 							return {
-								title: "Your favorite places",
+								title: "All Your favorite places",
 								headerRight: ({ tintColor }) => (
 									<Icn_Btn
 										icon="add"

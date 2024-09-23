@@ -30,9 +30,13 @@ const Plcs_frm = ({ onCreatePlace }: any) => {
 		set_pkd_lc(loc);
 	}, []);
 	const sav_plc_hndlr = () => {
-		console.log(enteredTitle);
-		console.log(slc_ig);
-		console.log(pkd_lc);
+		// console.log(enteredTitle);
+		// console.log(slc_ig);
+
+		// console.log(
+		// 	"from Plcs_frm.tsx",
+		// 	JSON.stringify(pkd_lc, null, "\t"),
+		// );
 
 		const place_data = new Place(
 			enteredTitle,
