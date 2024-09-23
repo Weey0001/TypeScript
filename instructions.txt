@@ -10,3 +10,7 @@ _cache
   -npm cache clean --force
   -npm start -- --reset-cache
 
+_eas config
+  -npm install -g eas-cli
+  -eas build:configure
+  -eas build --platform android --profile preview
