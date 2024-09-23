@@ -6,7 +6,6 @@ export interface PlaceType {
 		lat: number;
 		lng: number;
 	};
-
 	id?: string;
 }
 export class Place implements PlaceType {

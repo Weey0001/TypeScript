@@ -22,7 +22,10 @@ const All_plcs = ({ route }: any) => {
 		const loadPlaces = async () => {
 			let data = await fetchPlaces();
 			if (!!data) setLoadedPlaces(data);
-			console.log(data);
+			console.log(
+				"Data in All_plcs: ",
+				data?.length,
+			);
 		};
 		if (isFocused) {
 			loadPlaces();

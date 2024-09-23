@@ -41,7 +41,7 @@ export const insertPlace = async (
 	try {
 		const db_async = await db;
 
-		const result = await db_async.runAsync(
+		await db_async.runAsync(
 			`INSERT INTO places (title,image,address,lat,lng) VALUES (?,?,?,?,?)`,
 			[
 				place.title,
@@ -93,6 +93,40 @@ export const fetchPlaces = async () => {
 	} catch (error) {
 		Alert.alert(
 			"Error from database fetchPlace",
+			`${error}`,
+		);
+	}
+};
+
+export const fetchPalceDetails = async (
+	id: number,
+) => {
+	const db_async = await db;
+
+	const result: any =
+		await db_async.getFirstAsync(
+			"SELECT * FROM places WHERE id = ?",
+			[id],
+		);
+
+	try {
+		console.log(
+			JSON.stringify(result, null, "\t"),
+		);
+		let place = new Place(
+			result?.title,
+			result?.image,
+			{
+				lat: result.lat,
+				lng: result.lng,
+				address: result.address,
+			},
+			result.id,
+		);
+		return place;
+	} catch (error) {
+		Alert.alert(
+			"Error from database fetchPalceDetails",
 			`${error}`,
 		);
 	}

@@ -19,16 +19,22 @@ type lctn_prps = {
 	lng: number;
 };
 
-const Map = ({ navigation }: any) => {
+const Map = ({ navigation, route }: any) => {
+	const initialRegion = route.params && {
+		lat: route.params.lat,
+		lng: route.params.lng,
+	};
 	const [slctd_log, set_Slc_lct] =
-		useState<lctn_prps | null>(null);
+		useState<lctn_prps>(initialRegion);
+
 	const region = {
-		latitude: 37.78825,
-		longitude: -122.4324,
+		latitude: initialRegion?.lat ?? 37.78825,
+		longitude: initialRegion?.lng ?? -122.4324,
 		latitudeDelta: 0.0922,
 		longitudeDelta: 0.0421,
 	};
 	const slct_loc = (e: any) => {
+		if (initialRegion) return;
 		const lat = e.nativeEvent.coordinate.latitude;
 		const lng =
 			e.nativeEvent.coordinate.longitude;
@@ -50,6 +56,9 @@ const Map = ({ navigation }: any) => {
 		});
 	}, [navigation, slctd_log]);
 	useLayoutEffect(() => {
+		if (!!initialRegion) {
+			return;
+		}
 		navigation.setOptions({
 			headerRight: ({ tintColor }: any) => (
 				<Icn_Btn
@@ -60,7 +69,7 @@ const Map = ({ navigation }: any) => {
 				/>
 			),
 		});
-	}, [navigation, sav_pck_lct]);
+	}, [navigation, sav_pck_lct, initialRegion]);
 	return (
 		<MapView
 			style={styles.map}

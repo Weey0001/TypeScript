@@ -15,7 +15,7 @@ const Places_List = ({
 	places: PlaceType[];
 }) => {
 	const navigation: any = useNavigation();
-	const select_place = (id: any) => {
+	const select_place = (id: number) => {
 		navigation.navigate("Plcs_dtls", {
 			placeId: id,
 		});
