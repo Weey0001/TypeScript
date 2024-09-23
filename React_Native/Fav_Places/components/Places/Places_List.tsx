@@ -7,12 +7,19 @@ import {
 import { PlaceType } from "../../models/places";
 import Place_Item from "./Place_Item";
 import { Colors } from "../../constants/colors";
+import { useNavigation } from "@react-navigation/native";
 
 const Places_List = ({
 	places,
 }: {
 	places: PlaceType[];
 }) => {
+	const navigation: any = useNavigation();
+	const select_place = (id: any) => {
+		navigation.navigate("Plcs_dtls", {
+			placeId: id,
+		});
+	};
 	if (!places || places.length === 0) {
 		return (
 			<View style={styles.fallbackContainer}>
@@ -30,7 +37,7 @@ const Places_List = ({
 			renderItem={({ item }) => (
 				<Place_Item
 					place={item}
-					onSelect={() => {}}
+					onSelect={select_place}
 				/>
 			)}
 		/>

@@ -10,7 +10,7 @@ import { Colors } from "../../constants/colors";
 
 type Place_Item_type = {
 	place: PlaceType;
-	onSelect: () => void;
+	onSelect: (id: any) => void;
 };
 
 const Place_Item = ({
@@ -19,7 +19,7 @@ const Place_Item = ({
 }: Place_Item_type) => {
 	return (
 		<Pressable
-			onPress={onSelect}
+			onPress={() => onSelect(place.id)}
 			style={({ pressed }) => [
 				styles.item,
 				pressed && styles.pressed,
