@@ -1,5 +1,5 @@
 const API =
-	"AIzaSyBJumV0fLspRjQNFMEOIG6aU6Cso9it7V0";
+	"your API";
 
 export const getMapPreview = (
 	lat: any,
