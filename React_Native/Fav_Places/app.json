@@ -1,35 +1,44 @@
 {
-	"expo": {
-		"name": "Fav_Places",
-		"slug": "Fav_Places",
-		"version": "1.0.0",
-		"orientation": "portrait",
-		"icon": "./assets/icon.png",
-		"userInterfaceStyle": "light",
-		"splash": {
-			"image": "./assets/splash.png",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"ios": {
-			"supportsTablet": true
-		},
-		"android": {
-			"adaptiveIcon": {
-				"foregroundImage": "./assets/adaptive-icon.png",
-				"backgroundColor": "#ffffff"
-			}
-		},
-		"web": {
-			"favicon": "./assets/favicon.png"
-		},
-		"plugins": [
-			[
-				"expo-image-picker",
-				{
-					"cameraPermission": "The app need access to your camera."
-				}
-			]
-		]
-	}
+  "expo": {
+    "name": "Fav_Places",
+    "slug": "Fav_Places",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.daindy1994.Fav_Places"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "The app need access to your camera."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "569d4954-452d-4788-a41d-3a3199daaa1d"
+      }
+    }
+  }
 }
