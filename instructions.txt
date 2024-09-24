@@ -14,3 +14,4 @@ _eas config
   -npm install -g eas-cli
   -eas build:configure
   -eas build --platform android --profile preview
+  -{ "cli": { "requireCommit": true } } to eas.json
