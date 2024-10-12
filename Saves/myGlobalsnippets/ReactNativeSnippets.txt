@@ -1,0 +1,858 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"start recompose":{
+        "prefix": "recomp",
+		"body": [
+
+			"import {",
+			"",
+			"  withState ,",
+			"  withHandlers ,",
+			"  withReducer ,",
+			"  compose ,",
+			"  lifecycle ,",
+			"  withProps",
+			"",
+			"} from 'recompose'",
+			"",
+			"let add${1:Name}State = withState (",
+			"",
+			"  '${1:Name}' ,",
+			"  'set${1:Name}' ,",
+			"   data",
+            "",
+			")",
+			"",
+			"let actionReducer = ( actionApp: any , action: any ) => {",
+			"",
+			"  switch ( action.type ) {",
+			"",
+			"    case 'CASE_1':",
+			"      return actionApp = 'CASE_1';",
+			"  ",
+			"    default:",
+			"",
+			"      return actionApp = 'CASE_1' ",
+			"",
+			"}",
+			"",
+			"let addReducer = withReducer (",
+			"",
+			"  'actionApp' ,",
+			"  'dispatch' ,",
+			"  actionReducer ,",
+			"  'CASE_1'",
+			"",
+			")",
+			"",
+			"let addHandlers = withHandlers ({",
+			"",
+			"",
+			"",
+			"})",
+			"",
+			"let addLyfeCycle = lifecycle ({",
+			"",
+			"  componentDidMount () {",
+			"",
+			"  }",
+			"",
+			"})",
+            "",
+			"export default compose (",
+			"",
+			"",
+			"",
+			")"
+		]
+
+	},
+	"create": {
+		"prefix":"create",
+		"body": [
+			"import { StyleSheet } from 'react-native' ",
+			"",
+			"const ${1:Name} = StyleSheet.create (",
+			"  {",
+			"",
+		    "     $1",
+            "",
+			"  }",
+			")",
+			"export default ${1:Name}"
+		]
+	  },
+	  "Platform_Select": {
+		"prefix":"pselect",
+		"body": "...Platform.select({ ios: {}, android: {}})"
+	  },
+	  "Shadow_Properties": {
+		"prefix":"sdw",
+		"body": "...Platform.select({ ios: { ...shadowProperties }, android: { elevation }}),"
+	  },
+	  "View": {
+		"prefix":"v",
+		"body": [
+			"<View style = { $1 } >",
+		    "",
+		    "  $1",
+			"",
+			"</View>"
+		]
+	  },
+	  "Text": {
+		"prefix":"te",
+		"body": [
+			"<Text style = {  } >",
+			"",
+		    "  $1",
+			"",
+			"</Text>"]
+	  },
+	  "View_And_Text": {
+		"prefix":"v>te",
+		"body": [
+			"<View style = {  } >",
+			"",
+			"  <Text style = {  } >",
+			"",
+			"    $1",
+			"",
+			"  </Text>",
+			"",
+			"</View>"
+		]
+	  },
+	  "Image": {
+		"prefix":"img",
+		"body": [
+			"<Image ",
+			"",
+			"  source = { {} }",
+			"  style = { {} }",
+			"  loadingIndicatorSource = { uri }",
+			"  progressiveRenderingEnabled = { true }",
+			"  fadeDuration = { number }",
+			"  onProgress = { ",
+		    "",
+		    "    ( { nativeEvent: { loaded , total } } ) => ",
+			"   ",
+			"      loaded === total ?",
+		    "        console.log ( 'dene' ) ",
+			"        : null",
+			"    }",
+			"",
+			"/>"
+		]
+	  },
+
+	  "Fucnctional Component high View": {
+		  "prefix": "fchv",
+		  "body": [
+
+			"const ${1:name}: React.FC = ( props: any ) =>" ,
+			"",
+			"  <View>",
+			"",
+			"",
+			"",
+			"  </View>",
+			"",
+			"export default ${1:name}"
+
+		  ]
+	  },
+
+	  "Fucnctional Component high FlatList": {
+		"prefix": "fchf",
+		"body": [
+
+		  "const ${1:name}: React.FC = ( props: any ) =>" ,
+		  "",
+		  "  <FlatList",
+		  "",
+		  "    style = { {} }",
+		  "    horizontal = { false }",
+		  "    data = { [] }",
+		  "    keyExtractor = { ( item, index ) => item.id }",
+		  "    numColumns = { 1 }",
+		  "    refreshing = { true }",
+		  "    renderItem = {",
+		  "",
+		  "      ( { item , index } ) =>",
+		  "",
+          "        <${2:SomeCompnent} ",
+		  "",
+		  "          ${3:DataProp} = { item }",
+		  "          index = { index }",
+		  "",
+		  "        />",
+		  "",
+		  "     }",
+		  "",
+		  "    ListEmptyComponent = { <${4:ForEmptyDataComponent}/> }",
+		  "",
+		  "  />",
+		  "",
+		  "export default ${1:name}"
+
+		]
+	},
+
+	  "FlatList": {
+		"prefix":"fl",
+		"body":  "<FlatList data={} renderItem={} />"
+	  },
+	  "SectionList": {
+		"prefix":"sl",
+		"body": "<SectionList data={} renderItem={} />"
+	  },
+	  "ScrollView": {
+		"prefix":"sv",
+		"body": "<ScrollView></ScrollView>"
+	  },
+	  "TextInput": {
+		"prefix":"ti",
+		"body": [
+			
+			"<TextInput",
+			"", 
+			"  value = {} ",
+			"  style = { {} }",
+			"  placeholder = '' ",
+			"  placeholderTextColor = {  }",
+			"  textAlign = { }",
+			"  underlineColorAndroid = { false }", 
+			"  onChangeText = { ( txt ) => somefunction ( txt }", 
+			"  multiline = { false }",
+			"",
+			"/>",
+		]
+
+	  },
+	  "Modal": {
+		"prefix":"fcmdl",
+		"body": [
+			"<Modal ",
+            "",
+			"  visible = { true } ",
+			"  animation = 'slide' ",
+			"  transparent = { false }",
+			"",
+			">",
+			"",
+			"",
+			"",
+			"</Modal>",
+		]
+	  },
+	  "TouchableOpacity": {
+		"prefix":"to",
+		"body": "<TouchableOpacity style={} onPress={}></TouchableOpacity>"
+	  },
+	  "Animatable Text": {
+		"prefix":"animtxt",
+		"body": [
+			"import React from 'react' ",
+			"import * as Animatable from 'react-native-animatable'",
+			"import { TouchableWithoutFeedback } from 'react-native'",
+            "",
+            "const ${1:Name}: React:FC = ( props: any ) => " ,
+
+			"  <Animatable.View",
+			"",
+			"    animation = { }",
+			"    duration = { }",
+			"    delay = { }",
+			"    direction = { }",
+			"    easing = { }",
+			"    iterationCount = { }",
+			"    iterationDelay = { }",
+			"    useNativeDriver = { true }",
+			"",
+			"  >",
+			"    <TouchableWithoutFeedback ",
+            "",
+			"      style = {  } ",
+			"      onPress = {} ",
+			"",
+			"    >",
+            "",
+            "      <Animatable.View",
+			"",
+			"        ref = {}",
+			"        style = {}",
+			"",
+			"   >",
+			"",
+			"          <Text style = {} >",
+			"",
+			"          </Text>",
+			"",
+			"      </Animatable.View>",
+            "",
+			"    </TouchableWithoutFeedback>",
+            "",
+			"  </Animatable.View>",
+			"",
+			"export default ${1:Name}"
+		
+		]
+	  },
+	  "Animatable Image": {
+		"prefix":"animimg",
+		"body": [
+			"import React from 'react' ",
+			"import * as Animatable from 'react-native-animatable'",
+			"import { TouchableWithoutFeedback } from 'react-native'",
+            "",
+            "const ${1:Name}: React:FC = ( props: any ) => " ,
+            "",
+			"  <Animatable.View",
+			"",
+			"    animation = { }",
+			"    duration = { }",
+			"    delay = { }",
+			"    direction = { }",
+			"    easing = { }",
+			"    iterationCount = { }",
+			"    iterationDelay = { }",
+			"    useNativeDriver = { true }",
+			"",
+			"  >",
+			"    <TouchableWithoutFeedback ",
+            "  ",
+			"      style = {  } ",
+			"      onPress = {} ",
+			"",
+			"    >",
+            "  ",
+            "      <Animatable.Image",
+			"  ",
+			"        ref = {}",
+			"        style = {}",
+		    "        source = {}",
+			"  ",
+			"      />",
+            "",
+			"    </TouchableWithoutFeedback>",
+            "",
+			"  </Animatable.View>",
+			"",
+			"export default ${1:Name}"
+		
+		]
+	  },
+	  "TouchableHighlight": {
+		"prefix":"th",
+		"body": "<TouchableHighlight style={{}} onPress={}></TouchableHighlight>"
+	  },
+	  "TouchableWithNativeFeedback": {
+		"prefix":"twnf",
+		"body": "<TouchableWithNativeFeedback style={} onPress={}></TouchableWithNativeFeedback>"
+	  },
+	  "ActivityIndicator": {
+		"prefix":"actind",
+		"body": "<ActivityIndicator color='#00ff00' />"
+	  },
+	  "Button": {
+		"prefix":"btn",
+		"body": [
+			
+			"<Button ",
+			"",
+			"  color = '#00ff00'", 
+			"  title = 'button'",
+			"  onPress = {} ",
+			"",
+		    "/>"
+		
+		]
+	  },
+	  "Position": {
+		"prefix":"pos",
+		"body": "position: 'absolute',"
+	  },
+	  "Position_Absolute": {
+		"prefix":"pos:a",
+		"body": "position: 'absolute',"
+	  },
+	  "Position_Relative": {
+		"prefix":"pos:r",
+		"body": "position: 'relative',"
+	  },
+	  "Top": {
+		"prefix":"t",
+		"body": "top: 0,"
+	  },
+	  "Top_Auto": {
+		"prefix":"t:a",
+		"body": "top: 'auto',"
+	  },
+	  "Right": {
+		"prefix":"r",
+		"body": "right: 0,"
+	  },
+	  "Right_Auto": {
+		"prefix":"r:a",
+		"body": "right: 'auto',"
+	  },
+	  "Bottom": {
+		"prefix":"b",
+		"body": "bottom: 0,"
+	  },
+	  "Bottom_Auto": {
+		"prefix":"b:a",
+		"body": "bottom: 'auto',"
+	  },
+	  "Left": {
+		"prefix":"l",
+		"body": "left: 0,"
+	  },
+	  "Left_Auto": {
+		"prefix":"l:a",
+		"body": "left: 'auto',"
+	  },
+	  "ZIndex": {
+		"prefix":"z",
+		"body": "zIndex: 2,"
+	  },
+	  "Overflow": {
+		"prefix":"ov",
+		"body": "overflow: 'hidden',"
+	  },
+	  "Overflow_Visible": {
+		"prefix":"ov:v",
+		"body": "overflow: 'visible',"
+	  },
+	  "Oveflow_Hidden": {
+		"prefix":"ov:h",
+		"body": "overflow: 'hidden',"
+	  },
+	  "Margin": {
+		"prefix":"m",
+		"body": "margin: 4,"
+	  },
+	  "Margin_Auto": {
+		"prefix":"m:a",
+		"body": "margin: 'auto',"
+	  },
+	  "Margin_Top": {
+		"prefix":"mt",
+		"body": "marginTop: 4,"
+	  },
+	  "Margin_Top_Auto": {
+		"prefix":"mt:a",
+		"body": "marginTop: 'auto',"
+	  },
+	  "Margin_Right": {
+		"prefix":"mr",
+		"body": "marginRight: 4,"
+	  },
+	  "Margin_Right_Auto": {
+		"prefix":"mr:a",
+		"body": "marginRight: 'auto',"
+	  },
+	  "Margin_Bottom": {
+		"prefix":"mb",
+		"body": "marginBottom: 4,"
+	  },
+	  "Margin_Bottom_Auto": {
+		"prefix":"mb:a",
+		"body": "marginBottom: 'auto',"
+	  },
+	  "Margin_Left": {
+		"prefix":"ml",
+		"body": "marginLeft: 4,"
+	  },
+	  "Margin_Left_Auto": {
+		"prefix":"ml:a",
+		"body": "marginLeft: 'auto',"
+	  },
+	  "Padding": {
+		"prefix":"p",
+		"body": "padding: 4,"
+	  },
+	  "Padding_Top": {
+		"prefix":"pt",
+		"body": "paddingTop: 4,"
+	  },
+	  "Padding_Right": {
+		"prefix":"pr",
+		"body": "paddingRight: 4,"
+	  },
+	  "Padding_Bottom": {
+		"prefix":"pb",
+		"body": "paddingBottom: 4,"
+	  },
+	  "Padding_Left": {
+		"prefix":"pl",
+		"body": "paddingLeft: 4,"
+	  },
+	  "Width": {
+		"prefix":"w",
+		"body": "width: 120,"
+	  },
+	  "Width_Auto": {
+		"prefix":"w:a",
+		"body": "width: 'auto',"
+	  },
+	  "Height": {
+		"prefix":"h",
+		"body": "height: 120,"
+	  },
+	  "Height_Auto": {
+		"prefix":"h:a",
+		"body": "height: 'auto',"
+	  },
+	  "Max_Width": {
+		"prefix":"maxw",
+		"body": "maxWidth: 120,"
+	  },
+	  "Max_Height": {
+		"prefix":"maxh",
+		"body": "maxHeight: 120,"
+	  },
+	  "Min_Width": {
+		"prefix":"minw",
+		"body": "minWidth: 120,"
+	  },
+	  "Min_Height": {
+		"prefix":"minh",
+		"body": "minHeight: 120,"
+	  },
+	  "Border_Colors": {
+		"prefix":"bc",
+		"body": "borderColor: #000,"
+	  },
+	  "Border_Color_Transparent": {
+		"prefix":"bc:t",
+		"body": "borderColor: 'transparent',"
+	  },
+	  "Border_Width": {
+		"prefix":"bw",
+		"body": "borderWidth: 1,"
+	  },
+	  "Border_Top_Width": {
+		"prefix":"btw",
+		"body": "borderTopWidth: 1,"
+	  },
+	  "Border_Right_Width": {
+		"prefix":"brw",
+		"body": "borderRightWidth: 1,"
+	  },
+	  "Border_Bottom_Width": {
+		"prefix":"bbw",
+		"body": "borderBottomWidth: 1,"
+	  },
+	  "Border_Left_Width": {
+		"prefix":"blw",
+		"body": "borderLeftWidth: 1,"
+	  },
+	  "Border_Top_Color": {
+		"prefix":"btc",
+		"body": "borderTopColor: '#000',"
+	  },
+	  "Border_Top_Color_Transparent": {
+		"prefix":"btc:t",
+		"body": "borderTopColor: 'transparent',"
+	  },
+	  "Border_Right_Color": {
+		"prefix":"brc",
+		"body": "borderRightColor: '#000',"
+	  },
+	  "Border_Right_Color_Transparent": {
+		"prefix":"brc:t",
+		"body": "borderRightColor: 'transparent',"
+	  },
+	  "Border_Bottom_Color": {
+		"prefix": "bbc",
+		"body": "borderBottomColor: '#000',"
+	  },
+	  "Border_Bottom_Color_Transparent": {
+		"prefix":"bbc:t",
+		"body": "borderBottomColor: 'transparent',"
+	  },
+	  "Border_Left_Color": {
+		"prefix":"blc",
+		"body": "borderLeftColor: '#000',"
+	  },
+	  "Border_Left_Color_Transparent": {
+		"prefix":"blc:t",
+		"body": "borderLeftColor: 'transparent',"
+	  },
+	  "Border_Radius": {
+		"prefix":"br",
+		"body": "borderRadius: 4,"
+	  },
+	  "Background_Color": {
+		"prefix":"bgc",
+		"body": "backgroundColor: '#fff',"
+	  },
+	  "BackgroundColor_Transparent": {
+		"prefix":"bgc:t",
+		"body": "backgroundColor: 'transparent',"
+	  },
+	  "Color": {
+		"prefix":"c",
+		"body": "color: '#333',"
+	  },
+	  "Color_RGB": {
+		"prefix":"c:r",
+		"body": "color: 'rgb(0, 0, 0)',"
+	  },
+	  "Color_RGBA": {
+		"prefix":"c:ra",
+		"body": "color: 'rgba(0, 0, 0, 0.5)',"
+	  },
+	  "Text_Align": {
+		"prefix":"ta",
+		"body": "textAlign: 'center',"
+	  },
+	  "Text_Align_Left": {
+		"prefix":"ta:l",
+		"body": "textAlign: 'left',"
+	  },
+	  "Text_Align_Center": {
+		"prefix":"ta:c",
+		"body": "textAlign: 'center',"
+	  },
+	  "Text_Align_Right": {
+		"prefix":"ta:r",
+		"body": "textAlign: 'right',"
+	  },
+	  "Text_Align_Right_Justify": {
+		"prefix":"ta:j",
+		"body": "textAlign: 'justify',"
+	  },
+	  "Text_Decoration": {
+		"prefix":"td",
+		"body": "textDecoration: 'underline',"
+	  },
+	  "Transform_Scale": {
+		"prefix":"t:s",
+		"body": "transform: { scale: 1.2 }"
+	  },
+	  "Transform_Scale_X": {
+		"prefix":"t:sx",
+		"body": "transform: { scaleX: 1.2 }"
+	  },
+	  "Transform_Scale_Y": {
+		"prefix":"t:sy",
+		"body": "transform: { scaleY: 1.2 }"
+	  },
+	  "Transform_Rotate": {
+		"prefix":"t:r",
+		"body": "transform: { rotate: '90deg' }"
+	  },
+	  "Transform_Rotate_X": {
+		"prefix":"t:rx",
+		"body": "transform: { rotateX: '90deg' }"
+	  },
+	  "Transform_Rotate_Y": {
+		"prefix":"t:ry",
+		"body": "transform: { rotateY: '90deg' }"
+	  },
+	  "Transform_Rotate_Z": {
+		"prefix":"t:rz",
+		"body": "transform: { rotateZ: '90deg' }"
+	  },
+	  "Transform_Translate_X": {
+		"prefix":"t:tx",
+		"body": "transform: { translateX: x }"
+	  },
+	  "Transform_Translate_Y": {
+		"prefix":"t:ty",
+		"body": "transform: { translateY: y }"
+	  },
+	  "Line_Height": {
+		"prefix":"lh",
+		"body": "lineHeight: 24,"
+	  },
+	  "Letter_Spacing": {
+		"prefix":"ls",
+		"body": "letterSpacing: 1,"
+	  },
+	  "Font_Weight": {
+		"prefix":"fw",
+		"body": "fontWeight: 600,"
+	  },
+	  "Font_Weight_Bold": {
+		"prefix":"fw:b",
+		"body": "fontWeight: 'bold',"
+	  },
+	  "Font_Style": {
+		"prefix":"fst",
+		"body": "fontStyle: 'italic',"
+	  },
+	  "Font_Style_Italic": {
+		"prefix":"fst:i",
+		"body": "fontStyle: 'italic',"
+	  },
+	  "Font_Size": {
+		"prefix":"fs",
+		"body": "fontSize: 14,"
+	  },
+	  "Font_Family": {
+		"prefix":"ff",
+		"body": "fontFamily: 'Roboto'},"
+	  },
+	  "Opacity": {
+		"prefix": "o",
+		"body": "opacity: 0.5,"
+	  },
+	  "Flex_Direction": {
+		"prefix":"fd",
+		"body": "flexDirection: 'row',"
+	  },
+	  "Flex_Direction_Row": {
+		"prefix":"fd:r",
+		"body": "flexDirection: 'row',"
+	  },
+	  "Flex_Direction_Row_Reverse": {
+		"prefix":"fd:rr",
+		"body": "flexDirection: 'row-reverse',"
+	  },
+	  "Flex_Direction_Column": {
+		"prefix":"fd:c",
+		"body": "flexDirection: 'column',"
+	  },
+	  "Flex_Direction_Column_Reverse": {
+		"prefix":"fd:cr",
+		"body": "flexDirection: 'column-reverse',"
+	  },
+	  "Flex_Wrap": {
+		"prefix":"fwrap",
+		"body": "flexWrap: 'wrap',"
+	  },
+	  "Flex_Wrap_Nowrap": {
+		"prefix":"fwrap:n",
+		"body": "flexWrap: 'nowrap',"
+	  },
+	  "Flex_Wrap_Wrap": {
+		"prefix":"fwrap:w",
+		"body": "flexWrap: 'wrap',"
+	  },
+	  "Justify_Content": {
+		"prefix":"jc",
+		"body": "justifyContent: 'center',"
+	  },
+	  "Justify_Content_Flex_Start": {
+		"prefix":"jc:fs",
+		"body": "justifyContent: 'flex-start',"
+	  },
+	  "Justify_Content_Flex_End": {
+		"prefix":"jc:fe",
+		"body": "justifyContent: 'flex-end',"
+	  },
+	  "Justify_Content_Flex_Center": {
+		"prefix":"jc:c",
+		"body": "justifyContent: 'center',"
+	  },
+	  "Justify_Content_Flex_Space_Evenly": {
+		"prefix":"jc:se",
+		"body": "justifyContent: 'center',"
+	  },
+	  "Justify_Content_Flex_Space_Between": {
+		"prefix":"jc:sb",
+		"body": "justifyContent: 'space-between',"
+	  },
+	  "Justify_Content_Flex_Space_Arround": {
+		"prefix":"jc:sa",
+		"body": "justifyContent: 'space-around',"
+	  },
+	  "Aligin_Items": {
+		"prefix":"ai",
+		"body": "alignItems: 'center"
+	  },
+	  "Align_Items_Flex_Start": {
+		"prefix":"ai:fs",
+		"body": "alignItems: 'flex-start',"
+	  },
+	  "Align_Items_Flex_End": {
+		"prefix":"ai:fe",
+		"body": "alignItems: 'flex-end',"
+	  },
+	  "Align_Items_Center": {
+		"prefix":"ai:c",
+		"body": "alignItems: 'center',"
+	  },
+	  "Align_Items_Stretch": {
+		"prefix":"ai:s",
+		"body": "alignItems: 'stretch',"
+	  },
+	  "Flex": {
+		"prefix":"f",
+		"body": "flex: 1,"
+	  },
+	  "Align_Self": {
+		"prefix":"as",
+		"body": "alignSelf: 'center',"
+	  },
+	  "Margin_Horizontal": {
+		"prefix":"mh",
+		"body": "marginHorizontal: 16,"
+	  },
+	  "Margin_Vertical": {
+		"prefix":"mv",
+		"body": "marginVertical: 16,"
+	  },
+	  "Backface_Visibility": {
+		"prefix":"bfv:v",
+		"body": "backfaceVisibility: 'visible',"
+	  },
+	  "Border_Bottom_Left_Radius": {
+		"prefix":"bblr",
+		"body": "borderBottomLeftRadius: 4,"
+	  },
+	  "Border_Bottom_Right_Radius": {
+		"prefix":"bbrr",
+		"body": "borderBottomRightRadius: 4,"
+	  },
+	  "Border_Top_Left_Radius": {
+		"prefix":"btlr",
+		"body": "borderTopLeftRadius: 4,"
+	  },
+	  "Border_Top_Right_Radius": {
+		"prefix":"btrr",
+		"body": "borderTopRightRadius: 4,"
+	  },
+	  "Resize_Mode": {
+		"prefix":"rm",
+		"body": "resizeMode: 'cover',"
+	  },
+	  "Overlay_Color": {
+		"prefix":"ovclr",
+		"body": "overlayColor: '#fff',"
+	  },
+	  "Border_Style": {
+		"prefix":"bs",
+		"body": "borderStyle: 'dashed',"
+	  },
+	  "Elevation": {
+		"prefix":"elv",
+		"body": "elevation: 4"
+	  },
+	  "Text_Shadow_Color": {
+		"prefix":"tsc",
+		"body": "textShadowColor: '#000',"
+	  },
+	  "Text_Shadow_Offset": {
+		"prefix":"tso",
+		"body": "textShadowOffset: { width: 0, height: 4 },"
+	  },
+	  "Text_Shadow_Radius": {
+		"prefix":"tsr",
+		"body": "textShadowRadius:  2,"
+	  },
+	  "Text_Align_Vertical": {
+		"prefix":"tav",
+		"body": "textAlignVertical: 'center',"
+	  }
+}

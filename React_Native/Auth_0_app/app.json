@@ -1,0 +1,37 @@
+{
+	"expo": {
+		"name": "Auth_0_app",
+		"slug": "Auth_0_app",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"ios": {
+			"supportsTablet": true
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#ffffff"
+			},
+			"package": "com.daindy1994.Auth_0_app",
+			"permissions": [
+				"android.permission.WRITE_EXTERNAL_STORAGE",
+				"android.permission.READ_EXTERNAL_STORAGE"
+			]
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
+		"extra": {
+			"eas": {
+				"projectId": "2faf8fcb-9142-4756-956f-d28a08ee05b5"
+			}
+		}
+	}
+}

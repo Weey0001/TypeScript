@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="./flux_s03.js" defer></script>
+		<script src="https://unpkg.com/@reduxjs/toolkit@1.9.7/dist/redux-toolkit.umd.js"></script>
+	</head>
+	<body>
+		<div id="header">Aucun propriétaire configuré</div>
+		<form id="addForm" action="submit">
+			<input type="text" name="firstName" />
+			<button>Enregistrer</button>
+		</form>
+		<div>
+			<button class="orderButton" data-id="PouletCroquant">
+				Poulet Croquant
+			</button>
+			<button class="orderButton" data-id="DoubleCantal">Double Cantal</button>
+			<button class="orderButton" data-id="SuperCremeux">Super Cremeux</button>
+			<button id="voucher">voucher SuperCremeux 2.00</button>
+		</div>
+		<div id="command"></div>
+	</body>
+</html>

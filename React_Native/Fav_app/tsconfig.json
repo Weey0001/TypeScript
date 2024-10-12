@@ -1,0 +1,10 @@
+{
+	"extends": "expo/tsconfig.base",
+	"compilerOptions": {
+		"strict": true,
+		"target": "es6" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+		"lib": ["es6", "dom", "scripthost", "dom.iterable"],
+		"module": "ES2015",
+		"removeComments": true
+	}
+}

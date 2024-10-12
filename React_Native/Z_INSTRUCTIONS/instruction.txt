@@ -1,0 +1,183 @@
+-if loading issues
+  0_ npm cache clean --force
+  1_ npx expo start --tunnel --port 19001
+  2_ npm uninstall -g ngrok
+  3_ npm install -g ngrok
+  4_ ngrok http 19000
+  5_ rm -rf .expo
+  5_ rm -rf ~/.expo
+
+  nb: by removing the cache 0 and use tunnel 1
+
+-adb configure
+ _adb devices
+ _adb -s <device name> reverse tcp:8081 tcp:8081
+  
+-create project 
+  npx create-expo-app --template blank-typescript
+
+-run app
+  npm start
+
+-install eas 
+ npm install -g eas-cli
+
+-login
+ eas login
+
+-initialisation
+ eas init
+
+-configure
+  eas build:configure
+
+-build android apK
+  eas build -p android --profile preview
+  or eas build --platform android --profile development
+
+-with react-native-reanimated
+  npm install react-native-reanimated@1 --save --save-exact
+  npm start -- --reset-cache
+
+>>>>>>>instruction to use Reduxjs/redux-toolkit<<<<<<<
+
+1_files structure
+
+  -/app
+    _App.css
+    _App.js
+    _selectors.js
+    _store.js
+
+2_store.js
+
+  -create state_object:
+    ex:
+      let state = {
+        list:[],
+        owner:{}
+      }
+
+  _configure store
+
+  import { configureStore } form "@reduxjs/toolkit";
+
+  const store = configureStore({ 
+    preloadedState: state,
+    reducer,
+  });
+
+  _createSlice
+
+  import {createSlice} from "@reduxjs/toolkit"
+
+  ex:
+    const ownerSlice = createSlice({
+      name: "owner",
+      initialState:{},
+      reducers:{
+        updateFirstName:(currentSlice,action)=>{
+          const owner = { ...currentSlice,firstName: action.payload };
+          return owner;
+        },
+      }
+    });     
+
+_createEntityAdapter. The "createEntityAdapter" protocole is divide in 3 part
+
+a_the creation of the "Adapter"
+
+  ex:
+
+  // in the function of updating state we need to add an "id" to the income state so we use "nanoid" from the toolkit
+
+  [...]
+
+  dispatch(
+    notesSlice.actions.addNotes({
+      content: note,
+      id: nanoid(),
+  }),
+
+  [...]
+
+  import { createEntityAdapter } form "@reduxjs/toolkit"
+  
+  const notesAdapter = createEntityAdapter({
+    selectedId: (note) => note.id,
+  });
+
+b_the creation of the slice
+
+  export const notesSlice = createSlice({
+    name: "notes",
+    initialState: notesAdapter.getInitialState(),
+    reducers:{
+      addNote: notesAdapter.addOne,
+      removeNote: notesAdapter.removeOne,
+      updateNote: notesAdapter.updateOne
+    },
+  });
+
+  export const notesSlice = notesAdapter.getSelectors((state)=>state.notes));
+
+  ex2: 
+
+  let's re-write the cart component
+
+  const cartAdapter = createEntityAdapter ({
+    selectId: (list) => list.id,
+  });
+
+  export const cartSlice = createSlice({
+    name: "list",
+    initialState: cartSlice.getInitialState();
+    reducers: {
+      addProduct: cartAdapter.addOne,
+      removeNote: cartAdapter.removeOne,
+      updateNote:cartAdapter.updateOne,
+    },
+  });
+
+  export const listSelectors = productsAdapter.getSelectors((state)=>state.list);
+
+<<<<<use gif image in expo>>
+
+-use "expo-image"
+
+  ex:
+  const blurhash =
+    "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
+
+
+  export default function LoadingOverlay() {
+    return (
+      <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXdyazMwNWFhM2k3MHFuZnY4MHF5bTVtcTVuOWtkM2FvM2g5MnpnbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l4KiagmgGQB4sgkE0/giphy.gif"
+          placeholder={{ blurhash }}
+          contentFit="cover"
+          transition={1000}
+        />
+      </View>
+    );
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#fff",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    image: {
+      flex: 1,
+      width: "100%",
+      backgroundColor: "#0553",
+    },
+  });
+  
+  -permissions
+    _WRITE_EXTERNAL_STORAGE, 
+    _READ_EXTERNAL_STORAGE

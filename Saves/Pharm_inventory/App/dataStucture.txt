@@ -1,0 +1,47 @@
+let ItemDataStructure = {
+
+  Id: JSON.stringify ( new Date ().getTime () ) ,
+  Code_Bar: props.Code_Bar ,
+  name: props.name ,
+  category: props.category ,
+  multiple: JSON.stringify ( props.isMultiple ) ,
+  Prix_Entre: props.Prix_Entre ,
+  tva: JSON.stringify ( props.isTva ) ,
+  Nombre_Boite : props.Nombre_Boite  ,
+  numInBoit : props.isMultiple ? props.numInBoit : 1 ,
+  marge: props.marge ,
+  outPrice: GetOutPrice ( props ) ,
+  minInStock: props.minInStock ,
+  TotalInStock: TotalInStock ( props ),
+  valTva: props.isTva ? ValTva ( props ) : "0" ,
+  Benefices: Benefices ( props ) ,
+  Prix_Reel: props.Prix_Reel ,
+  BeneficesTotal: BeneficesTotal ( props )
+
+}
+
+interface DataItemType {
+
+  Id: string ,
+  Code_Bar: string ,
+  name: string ,
+  category: {
+    Id: string ,
+    Name: string
+  } ,
+  Prix_Entre: string ,
+  numInBoit: string ,
+  marge: string ,
+  outPrice: string ,
+  minInStock: string ,
+  TotalInStock: string ,
+  valTva: string ,
+  Benefices: string ,
+  Prix_Reel: string ,
+  BeneficesTotal: string ,
+  Nombre_Boite: string ,
+  multiple: string ,
+  tva: string ,
+  ratio: string
+
+}
